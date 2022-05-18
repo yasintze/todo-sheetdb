@@ -1,4 +1,4 @@
-import { IList } from "./iList";
+import { IList } from "./IList";
 
 const List = ({ data }: { data: IList[] }) => {
   return (

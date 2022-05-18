@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 
 import Layout from "components/Layout";
 import { Card, CardBody, CardHeader } from "components/Card";
-import List, { IList } from "components/List";
+import List from "components/List";
+import { IList } from "components/List/IList";
 
 interface HomeProps {
   data: IList[];
