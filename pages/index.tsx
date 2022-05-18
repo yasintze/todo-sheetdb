@@ -46,6 +46,18 @@ const Home: NextPage<HomeProps> = ({ data }) => {
     }
   };
 
+  const handleDelete = async (title: string) => {
+    const res = await fetch(`${apiUrl}/title/${title}`, {
+      method: "DELETE",
+    });
+
+    if (res.status < 300) {
+      refreshData();
+    } else {
+      alert("Failed to remove data!");
+    }
+  };
+
   return (
     <Layout>
       <Card>
@@ -65,8 +77,9 @@ const Home: NextPage<HomeProps> = ({ data }) => {
             data={
               !inputSearch
                 ? data
-                : data.filter((item) => item.title === inputSearch)
+                : data.filter((item) => item.title.includes(inputSearch))
             }
+            handleDelete={handleDelete}
           />
           <div className="input-group mt-3">
             <input
