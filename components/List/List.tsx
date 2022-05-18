@@ -1,9 +1,11 @@
-const List = ({ data }: { data: String[] }) => {
+import { IList } from "./iList";
+
+const List = ({ data }: { data: IList[] }) => {
   return (
     <ul className="list-group">
       {data.map((item, index) => (
         <li key={`item-${index}`} className="list-group-item">
-          {item}
+          {item?.title}
         </li>
       ))}
     </ul>
